@@ -1,0 +1,58 @@
+
+
+<!DOCTYPE html>
+<!-- -->
+<!-- enable Thymeleaf/Thymeleaf Extras -->
+<html xmlns:th="http://www.thymeleaf.org" 
+	  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+	
+	<head>
+		<title>Create a new Tweet</title>
+		<th:block th:replace="fragments/header">
+		
+	</head>
+	
+	<body>
+		<div class="container">
+			<div th:replace="fragments/navbar"></div>
+		
+			<div class="jumbotron col-md-8 col-md-offset-2">
+				<h2>New Tweet</h2><br/>
+				
+				<form th:action="@{/tweets}" th:object="${tweet}" method="post" autocomplete="off">
+					<div class="form-group">
+						<textarea rows="5" th:field="*{message}" placeholder="What's happening?" class="form-control">
+						</textarea>
+					</div>
+					<div class="form-group">
+						<button class="btn btn-md btn-success btn-block" name="Submit" value="Submit" 
+								type="Submit"> Tweet it! </button>
+					</div>
+				</form>
+				<div th:if="${successMessage}">
+					<h3><span class="text-success" th:utext="${successMessage}"></span></h3>
+					<!-- th:text will display this div as though entered with inner text; utext will render whatever's inside the 
+					message to the page, and can be dangerous, as it can allow for HTML insertion; here, it's a fixed value -->
+				</div>
+			</div>
+		</div>
+	</body>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</html>

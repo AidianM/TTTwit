@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<!-- -->
+<!-- enable Thymeleaf/Thymeleaf Extras -->
+<html xmlns:th="http://www.thymeleaf.org" 
+	  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+	
+	<head>
+		<title>Log In</title>
+		<th:block th:replace="fragments/header">
+		
+		</head>
+	
+	<body>
+		<div class="container">
+		<div th:replace="fragments/navbar"></div>
+		
+			<h2>Welcome!</h2>
+			<form th:action="@{/login}" method="post"> <!--note: we don't have a login post method, Spring Security is intercepting and handling that -->
+			
+				<!-- names of any input field will be what the variable name is submitted as to process-->
+				<input type="text" id="username" name="username" th:placeholder="Username" /> <br/>
+				<input type="password" id="password" name="password" th:placeholder="Password" /><br/>
+				<div th:if="${param.error}"> <!-- div only exists if th:if is true -->
+					<h4 style="color:red">Login Unsuccessful</h4>
+				</div>
+				<button class="btn btn-md btn-success btn-block" name="Submit" value="login" type="Submit">Log In</button>
+				<button class="btn btn-md btn-success btn-block" name="Submit" value="signup" type="Submit"><a th:href="@{/signup}" style="color: white;">Sign Up</a></button>
+				
+			</form>
+		</div>
+	</body>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</html>

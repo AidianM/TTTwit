@@ -1,0 +1,14 @@
+
+<div class="list-group" th:each="tweet:${tweetList}">
+	<div class="list-group-item list-group-item-action">
+		<div class="d-flex w-100 justify-content-between">
+			<h5>
+				<a th:href="@{${'/users/' +tweet.user.username}}">
+					@<span th:text="${tweet.user.username}"> </span>
+					<small><span th:text="${tweet.date}"> </span> </small>
+				</a>
+			</h5>
+		</div>
+		<p th:utext="${tweet.message}"> </p>				
+	</div>
+</div>
